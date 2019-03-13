@@ -1,5 +1,5 @@
 import React from 'react';
-import getAll from '../api/starships'
+import { getAll } from '../api/starships'
 
 export default class Starships extends React.Component {
   state = {
@@ -30,7 +30,7 @@ export default class Starships extends React.Component {
             {ship.name}
             </div>
           })}</div> : 
-          <div>loading</div>}
+          <div>loading...</div>}
       </div>
       ) 
   }

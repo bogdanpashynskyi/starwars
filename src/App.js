@@ -5,8 +5,7 @@ import './App.css'
 import Home from './components/Home'
 import Starships from './components/Starships'
 import Movies from './components/Movies'
-import People from './components/People'
-
+import PeoplePage from './components/People'
 
 class App extends Component {
   render() {
@@ -19,14 +18,16 @@ class App extends Component {
               <NavLink to="/home">Home</NavLink>
               <NavLink to="/starships">Starships</NavLink>
               <NavLink to="/movies">Movies</NavLink>
-              <NavLink to="/People">People</NavLink>
+              <NavLink to="/people">People</NavLink>
             </div>
 
             <Switch>
-              <Route path="/home" component={Home}/> 
+              <Route exact path="/" component={Home}/> 
+              <Route exact path="/home" component={Home}/> 
               <Route path="/starships" component={Starships} /> 
               <Route path="/movies" component={Movies} /> 
-              <Route path="/people" component={People}/> 
+              <Route path="/people" component={PeoplePage}/> 
+              <Route render={() => {return 'Page Not Found'}}/>
             </Switch>
             
           </div>
