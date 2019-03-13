@@ -24,7 +24,6 @@ class People extends React.Component {
   loadPeople = async () => {
     const allItems = await getAll('people')
     const results = allItems.results;
-    results.forEach(result => console.log(Object.entries(result)))
     this.setState({
       people: results,
       isLoaded: true
@@ -32,7 +31,7 @@ class People extends React.Component {
   }
 
   getId = (fullUrl) => {
-      const regexp = /\d/g
+      const regexp = /\d+/g
       const id = fullUrl.match(regexp);
       return id;
   }
@@ -50,7 +49,7 @@ class People extends React.Component {
             </Link>
             </div>
           })}</div> : 
-          <div>loading...</div>}
+          <div>Loading List of Characters...</div>}
       </div>
       ) 
   }
