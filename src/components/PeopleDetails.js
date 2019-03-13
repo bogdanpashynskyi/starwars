@@ -64,16 +64,22 @@ class Details extends React.Component{
 
   render() { 
     const { person, isLoaded } = this.state;
-
     return (
     <div>
       {isLoaded ?
-      <div>
-        <div>{person.name}</div>
-        <div>{person.gender}</div>
-        <div>{person.birth_year}</div>
-      </div>
-      : <div>Loading Character......</div> 
+      <table align="center">
+        <tbody>
+        {Object.entries(person).map(([key, value]) => {
+          return (
+          <tr>
+            <td className="App__table-row">{key}</td>
+            <td className="App__table-row">{value}</td>
+          </tr>
+          )
+        })}
+        </tbody>
+      </table>
+      : ''
       }
     </div>
     )}

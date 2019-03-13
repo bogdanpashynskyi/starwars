@@ -10,9 +10,20 @@
 }
 
 .active {
-  background-color: red;
+  background-color: rgb(253, 213, 213);
 }
 
 .App__navlink {
   padding: 5px;
+  text-decoration: none;
+  color: olive;
+}
+
+.App__table-row {
+  border-bottom: 1px solid #ddd;
+
+}
+
+table {
+  text-align: center;
 }
