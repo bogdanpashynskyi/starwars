@@ -1,5 +1,5 @@
 import React from 'react';
-import { getAll } from '../api/starships'
+import { getAll } from '../api/_helper'
 
 export default class Starships extends React.Component {
   state = {

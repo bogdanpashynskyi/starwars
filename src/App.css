@@ -4,6 +4,15 @@
 
 .App__nav-links {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   font-size: 25px;
+  justify-content: center;
+}
+
+.active {
+  background-color: red;
+}
+
+.App__navlink {
+  padding: 5px;
 }

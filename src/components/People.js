@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, Route, Switch } from 'react-router-dom'
-import { getAll } from '../api/starships'
+import { getAll } from '../api/_helper'
 import PeopleDetails from './PeopleDetails'
 
 const PeoplePage = () => {
@@ -17,6 +17,7 @@ class People extends React.Component {
     people: [],
     isLoaded: false,
   }
+  
   componentDidMount() {
     this.loadPeople()
   }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { getAll } from '../api/starships'
+import { getAll } from '../api/_helper'
 
 class PeopleDetails extends React.Component {
   state = {
@@ -37,7 +37,8 @@ class PeopleDetails extends React.Component {
 
 class Details extends React.Component{
   state = {
-    person: ''
+    person: '',
+    isLoaded: false,
   }
 
   componentDidMount() {
@@ -47,29 +48,32 @@ class Details extends React.Component{
   getId = (fullUrl) => {
     const regexp = /\d+/g
     const id = fullUrl.match(regexp);
-    return id;
+    return id[0];
 }
 
   loadPerson = () => {
     const id = this.props.id;
+
     for (let person of this.props.people) {
       if (id === this.getId(person.url)) {
-        this.setState( { person });
+        this.setState( { person, isLoaded: true, 
+         });
       }
     }
   }
 
   render() { 
-    const { person } = this.state;
+    const { person, isLoaded } = this.state;
+
     return (
     <div>
-      {person ?
+      {isLoaded ?
       <div>
         <div>{person.name}</div>
         <div>{person.gender}</div>
         <div>{person.birth_year}</div>
       </div>
-      : <div>Loading Character...</div> 
+      : <div>Loading Character......</div> 
       }
     </div>
     )}

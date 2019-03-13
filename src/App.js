@@ -15,10 +15,10 @@ class App extends Component {
             <h2>Star Wars</h2>
             
             <div className="App__nav-links">
-              <NavLink to="/home">Home</NavLink>
-              <NavLink to="/starships">Starships</NavLink>
-              <NavLink to="/movies">Movies</NavLink>
-              <NavLink to="/people">People</NavLink>
+              <NavLink className="App__navlink" to="/home">Home</NavLink>
+              <NavLink className="App__navlink" to="/starships">Starships</NavLink>
+              <NavLink className="App__navlink" to="/movies">Movies</NavLink>
+              <NavLink className="App__navlink" to="/people">People</NavLink>
             </div>
 
             <Switch>
