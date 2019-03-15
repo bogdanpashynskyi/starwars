@@ -4,8 +4,7 @@ import './App.css'
 
 import Home from './components/Home'
 import Starships from './components/Starships'
-import Movies from './components/Movies'
-import PeoplePage from './components/People'
+import { MoviesPage } from './components/Movies'
 
 class App extends Component {
   render() {
@@ -23,10 +22,10 @@ class App extends Component {
 
             <Switch>
               <Route exact path="/" component={Home}/> 
-              <Route exact path="/home" component={Home}/> 
+              <Route path="/home" component={Home}/> 
               <Route path="/starships" component={Starships} /> 
-              <Route path="/movies" component={Movies} /> 
-              <Route path="/people" component={PeoplePage}/> 
+              <Route path="/movies" component={MoviesPage} /> 
+              {/* <Route path="/people" component={PeoplePage}/>  */}
               <Route render={() => {return 'Page Not Found'}}/>
             </Switch>
             
