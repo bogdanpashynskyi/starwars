@@ -5,6 +5,7 @@ import './App.css'
 import Home from './components/Home'
 import Starships from './components/Starships'
 import { MoviesPage } from './components/Movies'
+import PeoplePage from './components/People'
 
 class App extends Component {
   render() {
@@ -25,7 +26,7 @@ class App extends Component {
               <Route path="/home" component={Home}/> 
               <Route path="/starships" component={Starships} /> 
               <Route path="/movies" component={MoviesPage} /> 
-              {/* <Route path="/people" component={PeoplePage}/>  */}
+              <Route path="/people" component={PeoplePage}/> 
               <Route render={() => {return 'Page Not Found'}}/>
             </Switch>
             

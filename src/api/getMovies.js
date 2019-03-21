@@ -3,14 +3,16 @@ import { get, getIdFromUrl } from './_helper';
 const BASE_URL = 'films';
 
 export const getResources = async () => {
-  const { results } = await get(BASE_URL);
+  const { results, count } = await get(BASE_URL);
 
-  return results.map(item => {
+  const movies = results.map(item => {
     return {
       ...item, 
       id: getIdFromUrl(item.url)
     }
   })
+
+  return {movies, count}
 }
 
 export const getResourceItemById = (id) => {

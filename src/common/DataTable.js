@@ -28,7 +28,7 @@ export default class DataTable extends Component {
         <tbody>
           {items.map(item => { return (
             <Rows
-            key={item.title} 
+            key={item.id} 
             item={item} 
             config={config} 
             />)

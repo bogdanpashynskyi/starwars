@@ -3,6 +3,9 @@ import { Link, Route, Switch} from 'react-router-dom'
 
 import { getResources, getResourceItemById } from '../api/getMovies'
 import DataTable from '../common/DataTable'
+import DetailsPage from '../common/DetailsPage'
+import SearchBar from '../common/Search'
+import Pagination from '../common/Pagination'
 
 export const moviesColumnConfig = {
   title: {
@@ -50,28 +53,37 @@ class Movies extends React.Component {
   state = {
     movies: [],
     isLoaded: false,
+    count: 0,
+    page: 1,
     config: moviesColumnConfig,
   }
 
   async componentDidMount() {
-    const movies = await getResources()
+    const { count, movies } = await getResources()
 
     this.setState({ 
+      count,
       movies,
       isLoaded: true,
     })
   }
 
   render() {
-    const { config, movies, isLoaded } = this.state
+    const { config, movies, count, page, isLoaded } = this.state
 
     return (
       <div>
-        {isLoaded ? 
+        {isLoaded ?
         <div>
+          <SearchBar/>
+          <Pagination
+            count={count}
+            page={page}
+            />
           <DataTable 
           config={config}
-          items={movies}/> 
+          items={movies}
+          /> 
         </div> : 
         <p> movies are loading...</p>} 
       </div>
@@ -99,27 +111,11 @@ class MovieDetails extends React.Component {
     const { movie, isLoaded, config } = this.state
     return (
       <div>
-        <table className="Details__container">
-          <tbody>
-          {isLoaded ?
-          Object.entries(config).map(([key, value]) =>
-          <tr
-          key={key}
-          >
-            <td
-            className="Details__title">
-            {value.title}
-            </td>
-            <td
-            className="Details__content">
-            {movie[key]}
-            </td>
-          </tr>
-        ): 
-        <div> the movie is loading...</div>}       
-          </tbody>
-        </table>
-
+        <DetailsPage 
+          movie={movie}
+          isLoaded={isLoaded}
+          config={config}
+        />
       </div>
     )
   }
