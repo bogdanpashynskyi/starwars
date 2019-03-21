@@ -10,7 +10,7 @@ import PeoplePage from './components/People'
 class App extends Component {
   render() {
     return ( 
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
           <div className="App">
             <h2>Star Wars</h2>
             
