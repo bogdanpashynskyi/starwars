@@ -22,7 +22,9 @@ const DetailsPage = (props) => {
           </td>
         </tr>
       ): 
-      <div> the movie is loading...</div>}       
+      <tr>
+        <td>the item is loading...</td>
+      </tr>}       
         </tbody>
     </table>
 

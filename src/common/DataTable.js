@@ -1,15 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class DataTable extends Component {
-  state = {
-    items: this.props.items,
-    config: this.props.config,
-  }
-
-  render() {
-    const { items, config } = this.state
-
-    return (
+const DataTable = (props) => {
+  const { items, config } = props
+  return (
       <table>
         <thead>
           <tr>
@@ -36,8 +29,10 @@ export default class DataTable extends Component {
         </tbody>
       </table>
     )
-  }
 }
+
+export default DataTable
+
 
 const Rows = ({item, config}) => (
   <tr>

@@ -1,73 +1,25 @@
 import React from 'react'
-import { Link, Route, Switch } from 'react-router-dom'
 
 import { getResources, getResourceItemById } from '../api/getPeople'
 import DataTable from '../common/DataTable'
 import DetailsPage from '../common/DetailsPage'
 import Pagination from '../common/Pagination'
+import { config } from '../config/config'
 
-export const peopleColumnConfig = {
-  name: {
-    title: 'Name',
-    isSortable: true,
-    isSearchable: true,
-    render: person => (
-      <Link to={`/people/${person.id}`}>{person.name}</Link>
-    ),
-  },
-  mass: {
-    title: 'Mass',
-    isSortable: true,
-  },
-  hair_color: {
-    title: 'Hair Color',
-  },
-  birth_year: {
-    title: 'Born',
-    isSortable: true,
-  },
-  gender: {
-    title: 'Gender',
-  },
-  height: {
-    title: 'Height',
-  },
-  species: {
-    title: 'Species',
-  },
-  homeworld: {
-    title: 'Homeworld ',
-  },
-  skin_color: {
-    title: 'Skin Color',
-  },
-};
-
-const PeoplePage = () => {
-   return (
-   <Switch>
-     <Route exact path="/people" component={People}/>
-     <Route path="/people/:id" component={PeopleDetails}/>
-   </Switch>
-   )
- }
-
- export default PeoplePage
-
- class People extends React.Component {
+ export class People extends React.Component {
   state = {
     people: [],
     count: 0,
-    page: 1,
+    page: 0,
     isLoaded: false,
-    config: peopleColumnConfig,
-  }
-
-  componentDidUpdate() {
-    this.getPageFromUrl()
+    config: config,
   }
 
   componentDidMount() {
+    this.getPageFromUrl()
+  }
+
+  componentDidUpdate() {
     this.getPageFromUrl()
   }
 
@@ -115,11 +67,11 @@ const PeoplePage = () => {
   }
 }
 
-class PeopleDetails extends React.Component {
+export class PeopleDetails extends React.Component {
   state = {
     people: null,
     isLoaded: false,
-    config: peopleColumnConfig
+    config: config
   }
 
   async componentDidMount() {

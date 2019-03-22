@@ -1,4 +1,4 @@
-const BASE_API_URL = 'https://swapi.co/api/'
+const BASE_API_URL = 'https://cors-anywhere.herokuapp.com/https://swapi.co/api/'
 
 export const get = url => { 
   return fetch(BASE_API_URL + url)
