@@ -1,0 +1,51 @@
+.App {
+  text-align: center;
+}
+
+.App__nav-links {
+  display: flex;
+  flex-direction: row;
+  font-size: 25px;
+  justify-content: center;
+}
+
+.App__link-items {
+  display: flex;
+  flex-direction: row;
+  font-size: 15px;
+  justify-content: center;
+}
+
+.Details__container {
+  width: 50%;
+  margin: 30px auto auto auto;
+}
+
+.Details__title {
+ font-weight: bold;
+ border-bottom: 1px solid olivedrab;
+ border-right: 1px solid olivedrab
+}
+
+.Details__content {
+  width: 70%;
+  border-bottom: 1px solid olivedrab
+}
+.active {
+  background-color: rgb(253, 213, 213);
+}
+
+.App__navlink {
+  padding: 5px;
+  text-decoration: none;
+  color: olive;
+}
+
+.App__table-row {
+  border-bottom: 1px solid #ddd;
+
+}
+
+table {
+  text-align: center;
+}
